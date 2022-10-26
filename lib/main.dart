@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 import 'login_screen.dart';
 
@@ -15,11 +16,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // Define the default brightness and colors.
+
       ),
-      home: const Login(title: 'Login UI'),
+      home:
+      LoginPageFul(),
+      // Login(title: 'Login UI',),
+        // const Login(title: 'Login UI'),
     );
   }
 }

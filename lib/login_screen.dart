@@ -1,4 +1,4 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tugas1/nama.dart';
 
@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
               height: 200,
             ),
             const Text(
-              'Sign in',
+              'Sign In',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
@@ -44,9 +44,15 @@ class _LoginState extends State<Login> {
               child: Column(
                 children: [
                   TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your username';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
-                      hintText: 'Enter your email',
-                      prefixIcon  : const Icon(Icons.email),
+                      hintText: 'Enter your username',
+                      prefixIcon  : const Icon(Icons.person),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -87,20 +93,25 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context){
-                        return const MyStatefulWidget();
-                        }),);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                    ),
-                    child: const Text(
-                      'Sign in',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate())
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context){
+                              return const MyStatefulWidget();
+
+                            }),);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                      ),
+                      child: const Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

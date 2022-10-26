@@ -12,7 +12,6 @@ import 'bantuan.dart';
 import 'dart:ui';
 
 class MyStatefulWidget extends StatefulWidget {
-  static String tag = 'navbar-page';
   const MyStatefulWidget({Key? key}) : super(key: key);
 
   @override
@@ -21,11 +20,9 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     menu(),
-    AccordionPage(),
+    Bantuan(),
   ];
 
   void _onItemTapped(int index) {
@@ -38,21 +35,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pemrograman aplikasi mobile"),
+        title: Text("Pemrograman aplikasi mobile",
+        style: TextStyle(
+            fontWeight: FontWeight.bold
+        )
+        ),
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.deepOrangeAccent,
+        centerTitle: true,
       ),
       body: Container(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return const calcu();
-            }),
-          );
-        },
-        child: const Icon(Icons.arrow_right_alt),
+        child: _widgetOptions[_selectedIndex],
       ),
 
       bottomNavigationBar: BottomNavigationBar(
@@ -60,14 +53,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+            backgroundColor: Colors.deepOrangeAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.help),
             label: 'Bantuan',
+            backgroundColor: Colors.blueAccent,
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
+        backgroundColor: Colors.red,
         onTap: _onItemTapped,
       ),
     );

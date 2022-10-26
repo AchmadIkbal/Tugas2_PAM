@@ -37,12 +37,6 @@ class _HomeAppState extends State<HomeApp> {
     });
   }
 
-  void addLaps() {
-    String lap = "$digitHours:$digitMinutes:$digitSeconds";
-    setState(() {
-      laps.add(lap);
-    });
-  }
 
   void start() {
     started = true;
@@ -85,7 +79,7 @@ class _HomeAppState extends State<HomeApp> {
           child: Padding(
             padding: const EdgeInsets.all(14.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Center(
@@ -109,43 +103,7 @@ class _HomeAppState extends State<HomeApp> {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-                Container(
-                  height: 240,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF323F68),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: ListView.builder(
-                    itemCount: laps.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Putaran Ke-${index + 1}",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                            Text(
-                              "${laps[index]}",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(
-                  height: 17.0,
-                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -167,13 +125,6 @@ class _HomeAppState extends State<HomeApp> {
                     ),
                     const SizedBox(
                       width: 6.0,
-                    ),
-                    IconButton(
-                      color: Colors.white,
-                      onPressed: () {
-                        addLaps();
-                      },
-                      icon: const Icon(Icons.flag),
                     ),
                     const SizedBox(
                       width: 6.0,

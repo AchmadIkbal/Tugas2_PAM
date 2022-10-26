@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tugas1/anggota.dart';
 import 'package:tugas1/calcu.dart';
 import 'package:tugas1/login_screen.dart';
+import 'package:tugas1/logout.dart';
 import 'package:tugas1/menu.dart';
 import 'package:tugas1/stopwatch.dart';
 import 'login_screen.dart';
@@ -23,97 +24,150 @@ class _menuState extends State<menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 40,),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 50),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context){
-                        return const Anggota();
-                      }),);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                  ),
-                  child: const Text(
-                    'Daftar Anggota',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                Text("Menu :",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                SizedBox(height: 10,),
+                Container(
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context){
+                          return const Anggota();
+                        }),);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red, // background
+                      onPrimary: Colors.white,
+                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                      textStyle: TextStyle(
+                          fontSize: 18,
+                          // fontWeight: FontWeight.bold
+                      ),
+                      // padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                    ),
+                    child: const Text(
+                      'Daftar Anggota',
+                      style: TextStyle(
+                        // fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 10,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context){
-                        return hobi();
-                      }),);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                  ),
-                  child: const Text(
-                    'Hobby',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                Container(
+                    width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context){
+                          return hobi();
+                        }),);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red, // background
+                      onPrimary: Colors.white,
+                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                      textStyle: TextStyle(
+                          fontSize: 18,
+                          // fontWeight: FontWeight.bold
+                      ),
+                      // padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                    ),
+                    child: const Text(
+                      'Hobby',
+                      style: TextStyle(
+                        // fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 10,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context){
-                        return const calcu();
-                      }),);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                  ),
-                  child: const Text(
-                    'Kalkulator',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                Container(
+                  width: 300,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context){
+                            return const calcu();
+                          }),);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.red, // background
+                        onPrimary: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                        textStyle: TextStyle(
+                            fontSize: 18,
+                            // fontWeight: FontWeight.bold
+                        ),
+                        // padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                      ),
+                      child: const Text(
+                        'Kalkulator',
+                        style: TextStyle(
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                ),
+                SizedBox(height: 10,),
+                Container(
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context){
+                          return HomeApp();
+                        }),);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red, // background
+                      onPrimary: Colors.white,
+                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                      textStyle: TextStyle(
+                          fontSize: 18,
+                          // fontWeight: FontWeight.bold
+                      ),
+                      // padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                    ),
+                    child: const Text(
+                      'Stopwatch',
+                      style: TextStyle(
+                        // fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 10,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context){
-                        return HomeApp();
-                      }),);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                  ),
-                  child: const Text(
-                    'Stopwatch',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                Container(
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context){
+                          return Logout();
+                        }),);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red, // background
+                      onPrimary: Colors.white,
+                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                      textStyle: TextStyle(
+                          fontSize: 18,
+                          // fontWeight: FontWeight.bold
+                      ),
+                      // padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                     ),
-                  ),
-                ),
-                SizedBox(height: 10,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context){
-                        return Login(title: 'Login UI');
-                      }),);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                  ),
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                    child: const Text(
+                      'Logout',
+                      style: TextStyle(
+                        // fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
